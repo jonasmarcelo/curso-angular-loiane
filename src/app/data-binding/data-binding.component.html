@@ -16,6 +16,7 @@
     </article>
     -->
     <!--Exemplo de property binding usando class e style binding-->
+    <!--
     <article>
         <h3>
             <div>
@@ -49,5 +50,32 @@
 
             </div>
         </h3>
+    </article>
+    -->
+    <article>
+        <h3>Event Biding</h3>
+        <div>
+            <button (click)="btnClicado()" class="btn btn-primary">Me clique!</button>
+            <br><br>
+            <!-- Principais eventos do INPUT -->
+            <!-- (keyup) -> Evento disparado ao digitar valores no input -->
+            <!-- (keyup.enter) -> Evento disparado após clicar na tecla enter estando com foco no input -->
+            <!-- (blur) -> Evento disparado após a perda do foco do input -->
+            <input type="text"
+                (keyup)="onKeyUp($event)"
+                (keyup.enter)="btnSalvarValor(campoInput.value)"
+                (blur)="btnSalvarValor(campoInput.value)"
+            #campoInput />
+            <p>Valor atual: {{ valorAtual }}</p>
+            <p>Valor salvo: {{ valorSalvo }}</p>
+
+            <span
+                (mouseover)="btnOnMouseOverOut()"
+                (mouseout)="btnOnMouseOverOut()"
+                [class.highlight]="isMouseOver"
+            >
+                Passe o mouse sobre mim
+            </span>
+        </div>
     </article>
 </section>
